@@ -10,9 +10,9 @@ if (NODE_ENV === 'development') {
 app.use(require('body-parser').json())
 app.use(require('cors')())
 
-app.use('/api/users', require('./routes/users'))
+// app.use('/api/users', require('./routes/users'))
 app.use('/api/movies', require('./routes/movies'))
-app.use('/api/movies/:movieId/scenes', require('./routes/scenes'))
+// app.use('/api/movies/:movieId/scenes', require('./routes/scenes'))
 
 app.use((req, res, next) => {
     const status = 404
@@ -27,7 +27,7 @@ app.use((err, req, res, next) => {
     const message = 'Something went wrong.'
     const {status = 500, error = message } = err
 
-    res.status(status.json({status, error}))
+    res.status(status).json({status, error})
 })
 
 if (NODE_ENV !== 'testing') {
