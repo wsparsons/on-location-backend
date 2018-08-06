@@ -1,7 +1,7 @@
 
 exports.up = knex => {
   return knex.schema.createTable('movies', table => {
-    table.increments()
+    table.increments('id')
     table.string('imbdID').notNullable()
     table.string('title').notNullable()
     table.integer('year', 4).notNullable()
