@@ -32,6 +32,17 @@ exports.seed = knex => {
       director: 'Gareth Edwards',
       plot: 'The world is beset by the appearance of monstrous creatures, but one of them may be the only one who can save humanity.',
       poster: 'https://m.media-amazon.com/images/M/MV5BN2E4ZDgxN2YtZjExMS00MWE5LTg3NjQtNTkxMzJhOTA3MDQ4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg'
+    },
+    {
+      id:4,
+      imdbID: 'tt4262980',
+      title: 'Shin Godzilla',
+      year: 2016,
+      rated: 'NR',
+      genre: 'Action, Adventure, Drama',
+      director: ' Hideaki Anno, Shinji Higuchi',
+      plot: 'Japan is plunged into chaos upon the appearance of a giant monster.',
+      poster: 'https://m.media-amazon.com/images/M/MV5BODQ4ZmIzNWMtY2NiYi00MmM1LWFjMGQtMDE0Nzc1NzhjNjEyXkEyXkFqcGdeQXVyNDUwNzM4MzQ@._V1_SX300.jpg'
     }
   ]).then(() => {
     return knex.raw(`SELECT setval('${table}_id_seq', (SELECT MAX(id) FROM ${table}))`)

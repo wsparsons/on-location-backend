@@ -16,6 +16,12 @@ return knex(table).insert([
   },
   {
     id: 3,
+    lat: '40.701870',
+    long: '-74.018584',
+    address: 'Battery Park, New York, NY'
+  },
+  {
+    id: 4,
     lat: '35.6945174',
     long: '139.7018175',
     address: 'Godzilla Head, 1 Chome-18 Kabukicho, Shinjuku, Tokyo, Japan'
