@@ -9,7 +9,7 @@
     "migrate": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
     "seed": "knex seed:run",
-    "dev": "run-all \"npm run dev-server\" \"npm run lint-watch\"",
+    "dev": "run-all \"npm run dev-server\"",
     "start": "node src/app.js"
   },
   "keywords": [],
