@@ -1,13 +1,24 @@
+const { hashSync } = require('bcryptjs')
 
-exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
-  return knex('table_name').del()
-    .then(function () {
-      // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
-      ]);
-    });
-};
+const table = 'users'
+exports.seed = knex => {
+  
+  return knex(table).insert([
+    {
+      id: 1,
+      first_name: 'Clark',
+      last_name: 'Kent',
+      email: 'super@man.com',
+      password: hashSync('password')
+    },
+    {
+      id: 2,
+      first_name: 'Bruce',
+      last_name: 'Wayne',
+      email: 'bat@man.com',
+      password: hashSync('1234qwer')
+    }
+  ]).then(() => {
+    return knex.raw(`SELECT setval('${table}_id_seq', (SELECT MAX(id) FROM ${table}));`)
+  })
+}
