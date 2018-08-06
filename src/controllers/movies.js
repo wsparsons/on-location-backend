@@ -5,6 +5,6 @@ function getAll(req, res, next) {
   res.status(200).json({ data })
 }
 
-modele.exports = {
+module.exports = {
   getAll
 }

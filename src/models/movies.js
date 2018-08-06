@@ -4,6 +4,6 @@ function getAll() {
   return db('movies')
 }
 
-modele.exports = {
+module.exports = {
   getAll
 }
