@@ -23,15 +23,15 @@ exports.seed = knex => {
       poster: 'https://m.media-amazon.com/images/M/MV5BMTc3NjI2MjU0Nl5BMl5BanBnXkFtZTgwNDk3ODYxMTE@._V1_SX300.jpg'
     },
     {
-      id: ,
-      imdbID: '',
-      title: '',
-      year: ,
-      rated: '',
-      genre: '',
-      director: '',
-      plot: '',
-      poster: ''
+      id: 3,
+      imdbID: 'tt0831387',
+      title: 'Godzilla',
+      year: 2014,
+      rated: 'PG-13',
+      genre: 'Action, Adventure, Sci-Fi',
+      director: 'Gareth Edwards',
+      plot: 'The world is beset by the appearance of monstrous creatures, but one of them may be the only one who can save humanity.',
+      poster: 'https://m.media-amazon.com/images/M/MV5BN2E4ZDgxN2YtZjExMS00MWE5LTg3NjQtNTkxMzJhOTA3MDQ4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg'
     }
   ]).then(() => {
     return knex.raw(`SELECT setval('${table}_id_seq', (SELECT MAX(id) FROM ${table}))`)
