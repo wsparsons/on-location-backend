@@ -22,9 +22,11 @@
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
     "knex": "^0.15.2",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "pg": "^7.4.3"
   },
   "devDependencies": {
+    "dotenv": "^6.0.0",
     "nodemon": "^1.18.3",
     "run-all": "^1.0.1"
   }

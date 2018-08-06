@@ -1,4 +1,4 @@
-//if (process.env.NODE_ENV !== 'production') require('dotenv').load()
+if (process.env.NODE_ENV !== 'production') require('dotenv').load()
 const { DATABASE_URL, NODE_ENV } = process.env
 
 const path = require('path')
