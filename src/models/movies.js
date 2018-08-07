@@ -5,6 +5,10 @@ function getAll() {
   return db('movies')
 }
 
+
+function getOne(id) {
+    return db('movies').where({ id })
+  
 function search(fullText) {
   return db('movies').where('title', 'ILIKE', `%\\${fullText}%`)
 }
@@ -12,5 +16,6 @@ function search(fullText) {
 
 module.exports = {
   getAll,
+  getOne,
   search
 }
