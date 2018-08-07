@@ -1,6 +1,7 @@
 const knex = require('knex')
 const db = require('../db')
 
+
 function getAll() {
   return db('movies')
 }
@@ -13,6 +14,7 @@ function getOne(id) {
 function search(fullText) {
   return db('movies').where('title', 'ILIKE', `%\\${fullText}%`)
 }
+
 
 // Get a complete list of all scenes in the database by movie title, address, and description
 // not currently working.
@@ -56,6 +58,15 @@ function getPhotos(movieId, sceneId) {
   .innerJoin('photos', 'scenes.id', '=', 'scene_id')
 }
 
+function create (body) {
+ // console.log('IN MODEL CREATE MOVIE')
+ // console.log('PASSING IN: ', body)
+  return db('movies')
+  .insert(body)
+  .returning('*')
+  .then(([response]) => response)
+}
+
 
 module.exports = {
   getAll,
@@ -64,5 +75,6 @@ module.exports = {
   // getAllScenes,
   getScenes,
   getOneScene,
-  getPhotos
+  getPhotos,
+  create
 }
