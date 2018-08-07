@@ -15,7 +15,6 @@ function search(fullText) {
   return db('movies').where('title', 'ILIKE', `%\\${fullText}%`)
 }
 
-
 // Get a complete list of all scenes in the database by movie title, address, and description
 // not currently working.
 
