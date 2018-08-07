@@ -18,6 +18,12 @@ exports.seed = knex => {
       id: 3,
       movie_id: '3',
       location_id: '3',
+      description: 'Godzilla emerges from the waters near Manhattan.'
+    },
+    {
+      id: 4,
+      movie_id: '4',
+      location_id: '4',
       description: "Right before godzilla destroys Tokyo."
     }
   ]).then(() => {
