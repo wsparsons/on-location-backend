@@ -69,6 +69,6 @@ module.exports = {
   // getAllScenes,
   getScenes,
   getOneScene,
-  getPhotos
+  getPhotos,
   create
 }
