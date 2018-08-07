@@ -5,6 +5,13 @@ async function getAll(req, res, next) {
   res.status(200).json({ data })
 }
 
+async function search(req, res, next) {
+  const fullText = req.body.title
+  const data = await model.search(fullText)
+  res.status(200).json({ data })
+}
+
 module.exports = {
-  getAll
+  getAll,
+  search
 }
