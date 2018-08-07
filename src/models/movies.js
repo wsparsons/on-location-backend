@@ -8,6 +8,7 @@ function getAll() {
 
 function getOne(id) {
     return db('movies').where({ id })
+}
   
 function search(fullText) {
   return db('movies').where('title', 'ILIKE', `%\\${fullText}%`)
