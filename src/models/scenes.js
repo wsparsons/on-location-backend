@@ -18,7 +18,7 @@ function getScenes(id) {
         .innerJoin('locations', 'location_id', '=', 'locations.id')
         .innerJoin('photos', 'scenes.id', '=', 'scene_id')    
         .select('scenes.movie_id', 'scenes.description', 'locations.address', 'photos.photo')
-       .where('movie_id', id)
+        .where('movie_id', id)
 
 }
 
@@ -43,13 +43,21 @@ function getPhotos(movieId, sceneId) {
         .innerJoin('photos', 'scenes.id', '=', 'scene_id')
 }
 
-function create(body) {
-    // console.log('IN MODEL CREATE MOVIE')
-    // console.log('PASSING IN: ', body)
-    return db('scenes')
-        .insert(body)
-        .returning('*')
-        .then(([response]) => response)
+function create(movieId, body) {
+     console.log('IN MODEL CREATE SCENE')
+     const {address} = body
+     console.log('PASSING IN: ', address)
+    return db('locations')
+        .insert({address})
+        .returning('id')
+        .then(function (response) {
+            console.log(body, response, movieId)
+            return db('scenes')
+
+                .insert({movie_id: movieId, description: body.description, location_id: response[0]})
+                .returning('*')
+        })
+        
 }
 
 

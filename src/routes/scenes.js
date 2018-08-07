@@ -7,6 +7,6 @@ router.get('/:movieId/scene/:sceneId', ctrl.getOneScene)
 // Photos route for getting just photos for a particular scene.
 router.get('/:movieId/scene/:sceneId/photos', ctrl.getPhotos)
 
-//router.post('/scenes', ctrl.create)
+router.post('/:movieId/scenes', ctrl.create)
 
 module.exports = router
