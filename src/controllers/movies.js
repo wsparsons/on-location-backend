@@ -9,7 +9,6 @@ async function getAll(req, res, next) {
 
 async function getOne(req, res, next) {
   try {
-    console.log('IN GET ONE MOVIE WITH ID:', req.params.movieId)
     const data = await model.getOne(req.params.movieId)
     res.status(200).json({data})
   } catch(err) {
@@ -26,7 +25,6 @@ async function search(req, res, next) {
 async function create(req, res, next) {
   try {
     const response = await model.create(req.body)
-    console.log('RES:', response)
     res.status(201).json({ [resourceName]: response })
   } catch (e) {
     next({

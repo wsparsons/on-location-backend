@@ -10,7 +10,7 @@ if (NODE_ENV === 'development') {
 app.use(require('body-parser').json())
 app.use(require('cors')())
 
-// app.use('/api/users', require('./routes/users'))
+app.use('/api/users', require('./routes/users'))
 app.use('/api/movies', require('./routes/movies'))
 app.use('/api/movies', require('./routes/scenes'))
 
