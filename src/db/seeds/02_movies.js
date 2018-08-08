@@ -19,7 +19,7 @@ exports.seed = knex => {
       rated: 'PG-13',
       genre: 'Action, Adventure, Thriller',
       director: 'Brian De Palma',
-      plot: 'n American agent, under false suspicion of disloyalty, must discover and expose the real spy without the help of his organization.',
+      plot: 'An American agent, under false suspicion of disloyalty, must discover and expose the real spy without the help of his organization.',
       poster: 'https://m.media-amazon.com/images/M/MV5BMTc3NjI2MjU0Nl5BMl5BanBnXkFtZTgwNDk3ODYxMTE@._V1_SX300.jpg'
     },
     {
