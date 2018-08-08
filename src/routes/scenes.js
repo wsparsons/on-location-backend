@@ -9,5 +9,6 @@ router.get('/:movieId/scene/:sceneId/photos', ctrl.getPhotos)
 
 router.post('/:movieId/scenes', ctrl.create)
 router.patch('/:movieId/scene/:sceneId', ctrl.editScene)
+router.delete('/:movieId/scene/:sceneId', ctrl.deleteScene)
 
 module.exports = router
