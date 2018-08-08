@@ -16,7 +16,7 @@ function getScenes(id) {
     return db('movies')
         .innerJoin('scenes', 'movies.id', '=', 'scenes.movie_id')
         .innerJoin('locations', 'location_id', '=', 'locations.id')
-        .innerJoin('photos', 'scenes.id', '=', 'scene_id')    
+        .innerJoin('photos', 'scenes.id', '=', 'scene_id')
         .select('scenes.movie_id', 'scenes.description', 'locations.address', 'photos.photo')
         .where('movie_id', id)
 
@@ -57,14 +57,44 @@ function create(movieId, body) {
                 .insert({movie_id: movieId, description: body.description, location_id: response[0]})
                 .returning('*')
         })
-        
+
 }
 
+function editScene(sceneId, body) {
+  let updatedScene
+  return db('scenes')
+    .where('scenes.id', sceneId)
+    .update({
+      description: body.description,
+      updated_at: new Date()
+    })
+    .returning('*')
+    .then((sceneArray) => {
+      updatedScene = sceneArray[0]
+      return db('locations')
+        .where('locations.id', updatedScene.location_id)
+        .update({
+          address: body.address,
+          updated_at: new Date()
+        })
+        .returning('*')
+    })
+    .then(([response]) => {
+      // updatedScene.location = response
+
+      updatedScene.address = response.address
+      updatedScene.lat = response.lat
+      updatedScene.long = response.long
+
+      return updatedScene
+    })
+}
 
 module.exports = {
     // getAllScenes,
     getScenes,
     getOneScene,
     getPhotos,
-    create
+    create,
+    editScene
 }
