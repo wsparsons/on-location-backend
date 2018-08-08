@@ -14,6 +14,7 @@ async function signup (req, res, next) {
 
 async function login (req, res, next) {
   try {
+    console.log('login here', req.body);
     const response = await model.login(req.body)
     const token = auth.createToken(response.id)
 
