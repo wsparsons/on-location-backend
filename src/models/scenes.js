@@ -90,11 +90,20 @@ function editScene(sceneId, body) {
     })
 }
 
+function deleteScene(id) {
+    return db('scenes')
+        .where({ id })
+        .del()
+        .returning('*')
+        .then(([response]) => response)
+}
+
 module.exports = {
     // getAllScenes,
     getScenes,
     getOneScene,
     getPhotos,
     create,
-    editScene
+    editScene,
+    deleteScene
 }

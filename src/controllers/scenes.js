@@ -11,8 +11,8 @@ async function getScenes(req, res, next) {
     try {
         console.log('IN GET SCENES, movieid: ', req.params.movieId)
         const movieId = req.params.movieId
-        const data = await model.getScenes(movieId)
-        res.status(200).json({ data })
+        const response = await model.getScenes(movieId)
+        res.status(200).json({ [resourceName]: response })
     } catch (e) {
         console.log(e)
         next({
@@ -78,11 +78,27 @@ async function editScene(req, res, next){
   }
 }
 
+async function deleteScene(req, res, next) {
+    try {
+        const id = req.params.sceneId
+        const response = await model.deleteScene(id)
+
+        res.json({ [resourceName]: response })
+    } catch(e) {
+        console.log('DEL ERROR: ', e)
+        next({
+            status: 400,
+            error: 'Could not delete'
+        })
+    }
+}
+
 module.exports = {
     // getAllScenes,
     getScenes,
     getOneScene,
     getPhotos,
     create,
+    deleteScene,
     editScene
 }
