@@ -17,7 +17,7 @@ function getScenes(id) {
         .innerJoin('scenes', 'movies.id', '=', 'scenes.movie_id')
         .innerJoin('locations', 'location_id', '=', 'locations.id')
         // .innerJoin('photos', 'scenes.id', '=', 'scene_id')
-        .select('scenes.movie_id', 'scenes.description', 'locations.address')
+        .select('scenes.id', 'scenes.movie_id', 'scenes.description', 'locations.address')
         .where('movie_id', id)
 
 }
