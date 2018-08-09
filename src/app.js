@@ -12,7 +12,8 @@ app.use(require('cors')())
 
 app.use('/api/users', require('./routes/users'))
 app.use('/api/movies', require('./routes/movies'))
-app.use('/api/movies/:movieId/scenes', require('./routes/scenes'))
+app.use('/api/movies', require('./routes/scenes'))
+
 
 app.use((req, res, next) => {
     const status = 404
