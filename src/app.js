@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const {port = 5000, NODE_ENV = 'development'} = process.env
+const {PORT = 5000, NODE_ENV = 'development'} = process.env
 
 if (NODE_ENV === 'development') {
     require('dotenv').load()
@@ -33,8 +33,8 @@ app.use((err, req, res, next) => {
 })
 
 if (NODE_ENV !== 'testing') {
-    const listener = () => console.log(`Listening on port ${port}!`)
-    app.listen(port, listener)
+    const listener = () => console.log(`Listening on port ${PORT}!`)
+    app.listen(PORT, listener)
 }
 
 module.exports = app
