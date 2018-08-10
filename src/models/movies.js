@@ -8,7 +8,7 @@ function getAll() {
 
 
 function getOne(id) {
-    return db('movies').where({ id })
+    return db('movies').select('*').where({ id })
 }
 
 function search(fullText) {
