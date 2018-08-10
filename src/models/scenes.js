@@ -45,18 +45,24 @@ function getPhotos(movieId, sceneId) {
 
 function create(movieId, body) {
      console.log('IN MODEL CREATE SCENE')
-     const {address} = body
+     const {address, photo} = body
      console.log('PASSING IN: ', address)
     return db('locations')
         .insert({address})
         .returning('id')
         .then(function (response) {
-            console.log(body, response, movieId)
+            //console.log(body, response, movieId)
             return db('scenes')
 
                 .insert({movie_id: movieId, description: body.description, location_id: response[0]})
                 .returning('*')
         })
+        .then(function(response) {
+            console.log('RESPONSE IS: ',response, photo)
+            return db('photos')
+            .insert({scene_id: response[0].id, photo: photo})
+        })
+       
 
 }
 

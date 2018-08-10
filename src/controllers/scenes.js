@@ -54,7 +54,7 @@ async function create(req, res, next) {
     try {
         const response = await model.create(req.params.movieId, req.body)
         console.log('RES:', response)
-        res.status(201).json({ [resourceName]: response })
+        res.status(201)
     } catch (e) {
         next({
             status: 400,
