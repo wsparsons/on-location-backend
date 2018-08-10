@@ -4,7 +4,7 @@ exports.up = knex => {
     table.increments()
     table.integer('scene_id').notNullable()
     table.foreign('scene_id').references('scenes.id')
-    table.string('photo').defaultsTo('../../images/imagePlaceholder.png')
+    table.string('photo').defaultsTo('/src/images/imagePlaceholder.png')
     table.timestamps(true,true)
   })
 
