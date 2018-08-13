@@ -97,11 +97,18 @@ function editScene(sceneId, body) {
 }
 
 function deleteScene(id) {
-    return db('scenes')
-        .where({ id })
+    return db('photos')
+        .where('scene_id', id )
         .del()
         .returning('*')
-        .then(([response]) => response)
+        .then((response) => {
+            return db('scenes')
+            .where('id', id)
+            .del()
+            .returning('*')
+            
+
+        })
 }
 
 module.exports = {
